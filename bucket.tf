@@ -1,6 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "build_cache" {
+  count  = "${var.create_cache_bucket ? 1 : 0}"
   bucket = "${var.cache_bucket_prefix}${data.aws_caller_identity.current.account_id}-gitlab-runner-cache"
   acl    = "private"
 

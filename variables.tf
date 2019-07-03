@@ -219,6 +219,10 @@ variable "docker_machine_user" {
   default     = "docker-machine"
 }
 
+variable "create_cache_bucket" {
+  description = "true, if the cache bucket has to be created. false if the cache bucket already exists, e.g. multiple runners share the same cache-bucket"
+}
+
 variable "cache_bucket_prefix" {
   description = "Prefix for s3 cache bucket name."
   type        = "string"
